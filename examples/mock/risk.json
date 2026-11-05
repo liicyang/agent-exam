@@ -1,0 +1,100 @@
+{
+  "mode": "mock",
+  "model": "offline-scripted-double",
+  "request": {
+    "request_id": "risk",
+    "material_id": "M03",
+    "requested_slot": "2026-11-10T19:00"
+  },
+  "status": "blocked",
+  "review_status": "blocked",
+  "risk_reasons": [
+    "rights_not_approved",
+    "review_not_approved"
+  ],
+  "pending_items": [],
+  "suggested_slot": null,
+  "save_status": "not_saved",
+  "draft": null,
+  "published": false,
+  "trace": [
+    {
+      "step": 1,
+      "action": "read_material",
+      "arguments": {},
+      "reason": "读取素材元数据",
+      "result": {
+        "ok": true,
+        "material": {
+          "title": "未获授权的素材",
+          "rights": "unknown",
+          "review": "rejected"
+        },
+        "error": null
+      }
+    },
+    {
+      "step": 2,
+      "action": "check_rules",
+      "arguments": {},
+      "reason": "检查缺失字段与审核风险",
+      "result": {
+        "ok": true,
+        "status": "blocked",
+        "missing": [],
+        "risks": [
+          "rights_not_approved",
+          "review_not_approved"
+        ]
+      }
+    },
+    {
+      "step": 3,
+      "action": "finish",
+      "arguments": {
+        "status": "blocked"
+      },
+      "reason": "规则工具返回缺失字段或风险"
+    }
+  ],
+  "stop_reason": "model_finished",
+  "fixture": {
+    "catalog": {
+      "materials": {
+        "M01": {
+          "title": "字幕功能介绍",
+          "rights": "owned",
+          "review": "approved"
+        },
+        "M02": {
+          "title": "缺少版权证明",
+          "review": "approved"
+        },
+        "M03": {
+          "title": "未获授权的素材",
+          "rights": "unknown",
+          "review": "rejected"
+        }
+      },
+      "slots": [
+        "2026-11-10T18:00",
+        "2026-11-10T19:00",
+        "2026-11-10T20:00"
+      ],
+      "occupied": [
+        "2026-11-10T18:00"
+      ],
+      "rules": {
+        "required": [
+          "title",
+          "rights",
+          "review"
+        ],
+        "rights": "owned",
+        "review": "approved"
+      }
+    },
+    "fail_save": false,
+    "draft_count": 0
+  }
+}

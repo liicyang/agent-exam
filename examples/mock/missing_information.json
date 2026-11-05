@@ -1,0 +1,97 @@
+{
+  "mode": "mock",
+  "model": "offline-scripted-double",
+  "request": {
+    "request_id": "missing_information",
+    "material_id": "M02",
+    "requested_slot": "2026-11-10T19:00"
+  },
+  "status": "missing_information",
+  "review_status": "missing_information",
+  "risk_reasons": [],
+  "pending_items": [
+    "rights"
+  ],
+  "suggested_slot": null,
+  "save_status": "not_saved",
+  "draft": null,
+  "published": false,
+  "trace": [
+    {
+      "step": 1,
+      "action": "read_material",
+      "arguments": {},
+      "reason": "读取素材元数据",
+      "result": {
+        "ok": true,
+        "material": {
+          "title": "缺少版权证明",
+          "review": "approved"
+        },
+        "error": null
+      }
+    },
+    {
+      "step": 2,
+      "action": "check_rules",
+      "arguments": {},
+      "reason": "检查缺失字段与审核风险",
+      "result": {
+        "ok": true,
+        "status": "missing_information",
+        "missing": [
+          "rights"
+        ],
+        "risks": []
+      }
+    },
+    {
+      "step": 3,
+      "action": "finish",
+      "arguments": {
+        "status": "missing_information"
+      },
+      "reason": "规则工具返回缺失字段或风险"
+    }
+  ],
+  "stop_reason": "model_finished",
+  "fixture": {
+    "catalog": {
+      "materials": {
+        "M01": {
+          "title": "字幕功能介绍",
+          "rights": "owned",
+          "review": "approved"
+        },
+        "M02": {
+          "title": "缺少版权证明",
+          "review": "approved"
+        },
+        "M03": {
+          "title": "未获授权的素材",
+          "rights": "unknown",
+          "review": "rejected"
+        }
+      },
+      "slots": [
+        "2026-11-10T18:00",
+        "2026-11-10T19:00",
+        "2026-11-10T20:00"
+      ],
+      "occupied": [
+        "2026-11-10T18:00"
+      ],
+      "rules": {
+        "required": [
+          "title",
+          "rights",
+          "review"
+        ],
+        "rights": "owned",
+        "review": "approved"
+      }
+    },
+    "fail_save": false,
+    "draft_count": 0
+  }
+}

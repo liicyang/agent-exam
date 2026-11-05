@@ -1,0 +1,10 @@
+{
+  "materials": {
+    "M01": {"title": "字幕功能介绍", "rights": "owned", "review": "approved"},
+    "M02": {"title": "缺少版权证明", "review": "approved"},
+    "M03": {"title": "未获授权的素材", "rights": "unknown", "review": "rejected"}
+  },
+  "slots": ["2026-11-10T18:00", "2026-11-10T19:00", "2026-11-10T20:00"],
+  "occupied": ["2026-11-10T18:00"],
+  "rules": {"required": ["title", "rights", "review"], "rights": "owned", "review": "approved"}
+}

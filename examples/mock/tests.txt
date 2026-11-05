@@ -1,0 +1,23 @@
+test_changed_occupancy_changes_suggestion (test_agent.AgentTests) ... ok
+test_changed_request_same_id_rejected (test_agent.AgentTests) ... ok
+test_conflict_requires_confirmation (test_agent.AgentTests) ... ok
+test_fabricated_success_is_not_trusted (test_agent.AgentTests) ... ok
+test_limit (test_agent.AgentTests) ... ok
+test_missing_metadata (test_agent.AgentTests) ... ok
+test_missing_request_field (test_agent.AgentTests) ... ok
+test_model_error_is_sanitized (test_agent.AgentTests) ... ok
+test_no_available_slots (test_agent.AgentTests) ... ok
+test_normal (test_agent.AgentTests) ... ok
+test_repeat_has_one_row (test_agent.AgentTests) ... ok
+test_risk_blocks_save_even_if_called_directly (test_agent.AgentTests) ... ok
+test_storage_failure (test_agent.AgentTests) ... ok
+test_two_requests_cannot_reserve_same_slot (test_agent.AgentTests) ... ok
+test_unknown_material (test_agent.AgentTests) ... ok
+test_user_confirmation (test_agent.AgentTests) ... ok
+test_adapter_sends_observed_results_and_parses_next_action (test_model_adapter.AdapterTests) ... ok
+test_missing_key_is_explicit_failure (test_model_adapter.AdapterTests) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.134s
+
+OK

@@ -1,0 +1,115 @@
+{
+  "mode": "mock",
+  "model": "offline-scripted-double",
+  "request": {
+    "request_id": "changed_occupancy",
+    "material_id": "M01",
+    "requested_slot": "2026-11-10T18:00"
+  },
+  "status": "needs_confirmation",
+  "review_status": "approved",
+  "risk_reasons": [],
+  "pending_items": [
+    "请确认替代时段；尚未保存草稿"
+  ],
+  "suggested_slot": "2026-11-10T20:00",
+  "save_status": "not_saved",
+  "draft": null,
+  "published": false,
+  "trace": [
+    {
+      "step": 1,
+      "action": "read_material",
+      "arguments": {},
+      "reason": "读取素材元数据",
+      "result": {
+        "ok": true,
+        "material": {
+          "title": "字幕功能介绍",
+          "rights": "owned",
+          "review": "approved"
+        },
+        "error": null
+      }
+    },
+    {
+      "step": 2,
+      "action": "check_rules",
+      "arguments": {},
+      "reason": "检查缺失字段与审核风险",
+      "result": {
+        "ok": true,
+        "status": "approved",
+        "missing": [],
+        "risks": []
+      }
+    },
+    {
+      "step": 3,
+      "action": "query_slots",
+      "arguments": {},
+      "reason": "审核通过，查询可用时段",
+      "result": {
+        "ok": true,
+        "available": [
+          "2026-11-10T20:00"
+        ],
+        "occupied": [
+          "2026-11-10T18:00",
+          "2026-11-10T19:00"
+        ],
+        "requested": "2026-11-10T18:00"
+      }
+    },
+    {
+      "step": 4,
+      "action": "finish",
+      "arguments": {
+        "status": "needs_confirmation",
+        "suggested_slot": "2026-11-10T20:00"
+      },
+      "reason": "原时段不可用，需要用户确认替代时段"
+    }
+  ],
+  "stop_reason": "model_finished",
+  "fixture": {
+    "catalog": {
+      "materials": {
+        "M01": {
+          "title": "字幕功能介绍",
+          "rights": "owned",
+          "review": "approved"
+        },
+        "M02": {
+          "title": "缺少版权证明",
+          "review": "approved"
+        },
+        "M03": {
+          "title": "未获授权的素材",
+          "rights": "unknown",
+          "review": "rejected"
+        }
+      },
+      "slots": [
+        "2026-11-10T18:00",
+        "2026-11-10T19:00",
+        "2026-11-10T20:00"
+      ],
+      "occupied": [
+        "2026-11-10T18:00",
+        "2026-11-10T19:00"
+      ],
+      "rules": {
+        "required": [
+          "title",
+          "rights",
+          "review"
+        ],
+        "rights": "owned",
+        "review": "approved"
+      }
+    },
+    "fail_save": false,
+    "draft_count": 0
+  }
+}

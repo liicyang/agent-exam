@@ -1,0 +1,91 @@
+{
+  "mode": "mock",
+  "model": "offline-scripted-double",
+  "request": {
+    "request_id": "repeat",
+    "material_id": "M01",
+    "requested_slot": "2026-11-10T19:00"
+  },
+  "status": "saved",
+  "review_status": "approved",
+  "risk_reasons": [],
+  "pending_items": [],
+  "suggested_slot": "2026-11-10T19:00",
+  "save_status": "saved",
+  "draft": {
+    "ok": true,
+    "draft_id": "draft-25e2b6b106523880",
+    "slot": "2026-11-10T19:00",
+    "duplicate": false
+  },
+  "published": false,
+  "trace": [
+    {
+      "step": 1,
+      "action": "read_material",
+      "arguments": {},
+      "reason": "读取素材元数据",
+      "result": {
+        "ok": true,
+        "material": {
+          "title": "字幕功能介绍",
+          "rights": "owned",
+          "review": "approved"
+        },
+        "error": null
+      }
+    },
+    {
+      "step": 2,
+      "action": "check_rules",
+      "arguments": {},
+      "reason": "检查缺失字段与审核风险",
+      "result": {
+        "ok": true,
+        "status": "approved",
+        "missing": [],
+        "risks": []
+      }
+    },
+    {
+      "step": 3,
+      "action": "query_slots",
+      "arguments": {},
+      "reason": "审核通过，查询可用时段",
+      "result": {
+        "ok": true,
+        "available": [
+          "2026-11-10T19:00",
+          "2026-11-10T20:00"
+        ],
+        "occupied": [
+          "2026-11-10T18:00"
+        ],
+        "requested": "2026-11-10T19:00"
+      }
+    },
+    {
+      "step": 4,
+      "action": "save_draft",
+      "arguments": {
+        "slot": "2026-11-10T19:00"
+      },
+      "reason": "所选时段可用且已获授权",
+      "result": {
+        "ok": true,
+        "draft_id": "draft-25e2b6b106523880",
+        "slot": "2026-11-10T19:00",
+        "duplicate": false
+      }
+    },
+    {
+      "step": 5,
+      "action": "finish",
+      "arguments": {
+        "status": "saved"
+      },
+      "reason": "根据实际保存结果结束"
+    }
+  ],
+  "stop_reason": "model_finished"
+}

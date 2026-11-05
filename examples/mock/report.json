@@ -1,0 +1,64 @@
+{
+  "mode": "mock",
+  "model": "offline-scripted-double",
+  "generated_at_utc": "2026-11-05T06:28:21.908584+00:00",
+  "cases": [
+    {
+      "name": "normal",
+      "expected": "saved",
+      "actual": "saved",
+      "passed": true,
+      "record": "normal.json"
+    },
+    {
+      "name": "missing_information",
+      "expected": "missing_information",
+      "actual": "missing_information",
+      "passed": true,
+      "record": "missing_information.json"
+    },
+    {
+      "name": "risk",
+      "expected": "blocked",
+      "actual": "blocked",
+      "passed": true,
+      "record": "risk.json"
+    },
+    {
+      "name": "conflict",
+      "expected": "needs_confirmation",
+      "actual": "needs_confirmation",
+      "passed": true,
+      "record": "conflict.json"
+    },
+    {
+      "name": "save_failure",
+      "expected": "failed",
+      "actual": "failed",
+      "passed": true,
+      "record": "save_failure.json"
+    },
+    {
+      "name": "confirmed",
+      "expected": "saved",
+      "actual": "saved",
+      "passed": true,
+      "record": "confirmed.json"
+    },
+    {
+      "name": "repeat",
+      "expected": "saved",
+      "actual": "saved",
+      "passed": true,
+      "record": "repeat.json"
+    },
+    {
+      "name": "changed_occupancy",
+      "expected": "needs_confirmation",
+      "actual": "needs_confirmation",
+      "passed": true,
+      "record": "changed_occupancy.json"
+    }
+  ],
+  "passed": true
+}
