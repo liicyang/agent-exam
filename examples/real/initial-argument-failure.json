@@ -1,0 +1,53 @@
+{
+  "mode": "real",
+  "model": "deepseek-flash",
+  "request": {
+    "request_id": "conflict",
+    "material_id": "M01",
+    "requested_slot": "2026-11-10T18:00"
+  },
+  "status": "incomplete",
+  "review_status": "not_checked",
+  "risk_reasons": [],
+  "pending_items": [],
+  "suggested_slot": null,
+  "save_status": "not_saved",
+  "draft": null,
+  "published": false,
+  "trace": [
+    {
+      "step": 1,
+      "action": "read_material",
+      "arguments": {
+        "material_id": "M01"
+      },
+      "reason": "Need to inspect the material before checking rules or scheduling.",
+      "result": {
+        "ok": false,
+        "error": "invalid_tool_or_arguments"
+      }
+    },
+    {
+      "step": 2,
+      "action": "read_material",
+      "arguments": {
+        "material_id": "M01"
+      },
+      "reason": "Prior read attempt for M01 failed with invalid_tool_or_arguments; retrying with an explicit material_id.",
+      "result": {
+        "ok": false,
+        "error": "invalid_tool_or_arguments"
+      }
+    },
+    {
+      "step": 3,
+      "action": "finish",
+      "arguments": {
+        "status": "failed",
+        "suggested_slot": null
+      },
+      "reason": "read_material for M01 failed twice with invalid_tool_or_arguments; no material data was obtained, so review cannot proceed."
+    }
+  ],
+  "stop_reason": "model_finished"
+}

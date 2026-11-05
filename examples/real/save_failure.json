@@ -1,0 +1,124 @@
+{
+  "mode": "real",
+  "model": "deepseek-flash",
+  "request": {
+    "request_id": "save_failure",
+    "material_id": "M01",
+    "requested_slot": "2026-11-10T19:00"
+  },
+  "status": "failed",
+  "review_status": "approved",
+  "risk_reasons": [],
+  "pending_items": [],
+  "suggested_slot": null,
+  "save_status": "failed",
+  "draft": null,
+  "published": false,
+  "trace": [
+    {
+      "step": 1,
+      "action": "read_material",
+      "arguments": {},
+      "reason": "Read the requested material before reviewing rules",
+      "result": {
+        "ok": true,
+        "material": {
+          "title": "字幕功能介绍",
+          "rights": "owned",
+          "review": "approved"
+        },
+        "error": null
+      }
+    },
+    {
+      "step": 2,
+      "action": "check_rules",
+      "arguments": {},
+      "reason": "Material is owned and approved; rules check is the next required step before any save",
+      "result": {
+        "ok": true,
+        "status": "approved",
+        "missing": [],
+        "risks": []
+      }
+    },
+    {
+      "step": 3,
+      "action": "query_slots",
+      "arguments": {},
+      "reason": "Material is owned, approved, and rules passed; check availability for requested slot 2026-11-10T19:00",
+      "result": {
+        "ok": true,
+        "available": [
+          "2026-11-10T19:00",
+          "2026-11-10T20:00"
+        ],
+        "occupied": [
+          "2026-11-10T18:00"
+        ],
+        "requested": "2026-11-10T19:00"
+      }
+    },
+    {
+      "step": 4,
+      "action": "save_draft",
+      "arguments": {
+        "slot": "2026-11-10T19:00"
+      },
+      "reason": "Material owned and approved, rules passed, requested slot 2026-11-10T19:00 is available; saving draft",
+      "result": {
+        "ok": false,
+        "error": "simulated_storage_failure"
+      }
+    },
+    {
+      "step": 5,
+      "action": "finish",
+      "arguments": {
+        "status": "failed",
+        "suggested_slot": null
+      },
+      "reason": "Material owned/approved, rules passed, 19:00 available, but save_draft returned simulated_storage_failure"
+    }
+  ],
+  "stop_reason": "model_finished",
+  "fixture": {
+    "catalog": {
+      "materials": {
+        "M01": {
+          "title": "字幕功能介绍",
+          "rights": "owned",
+          "review": "approved"
+        },
+        "M02": {
+          "title": "缺少版权证明",
+          "review": "approved"
+        },
+        "M03": {
+          "title": "未获授权的素材",
+          "rights": "unknown",
+          "review": "rejected"
+        }
+      },
+      "slots": [
+        "2026-11-10T18:00",
+        "2026-11-10T19:00",
+        "2026-11-10T20:00"
+      ],
+      "occupied": [
+        "2026-11-10T18:00"
+      ],
+      "rules": {
+        "required": [
+          "title",
+          "rights",
+          "review"
+        ],
+        "rights": "owned",
+        "review": "approved"
+      }
+    },
+    "fail_save": true,
+    "draft_count": 0
+  }
+}

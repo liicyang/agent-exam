@@ -2,6 +2,7 @@ test_changed_occupancy_changes_suggestion (test_agent.AgentTests) ... ok
 test_changed_request_same_id_rejected (test_agent.AgentTests) ... ok
 test_conflict_requires_confirmation (test_agent.AgentTests) ... ok
 test_fabricated_success_is_not_trusted (test_agent.AgentTests) ... ok
+test_invalid_arguments_have_corrective_schema (test_agent.AgentTests) ... ok
 test_limit (test_agent.AgentTests) ... ok
 test_missing_metadata (test_agent.AgentTests) ... ok
 test_missing_request_field (test_agent.AgentTests) ... ok
@@ -18,6 +19,6 @@ test_adapter_sends_observed_results_and_parses_next_action (test_model_adapter.A
 test_missing_key_is_explicit_failure (test_model_adapter.AdapterTests) ... ok
 
 ----------------------------------------------------------------------
-Ran 18 tests in 0.134s
+Ran 19 tests in 0.131s
 
 OK

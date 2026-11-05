@@ -67,4 +67,5 @@ class BusinessTools:
             return getattr(self, action)()
         if action == 'save_draft' and set(arguments) == {'slot'} and isinstance(arguments['slot'], str):
             return self.save_draft(arguments['slot'])
-        return {'ok': False, 'error': 'invalid_tool_or_arguments'}
+        schemas = {'read_material': {}, 'check_rules': {}, 'query_slots': {}, 'save_draft': {'slot': 'YYYY-MM-DDTHH:MM'}}
+        return {'ok': False, 'error': 'invalid_tool_or_arguments', 'expected_arguments': schemas.get(action), 'allowed_tools': list(schemas)}

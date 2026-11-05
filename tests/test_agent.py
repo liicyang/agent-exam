@@ -28,6 +28,12 @@ class AgentTests(unittest.TestCase):
         self.assertFalse(result['published'])
         self.assertEqual(result['draft']['slot'], self.request['requested_slot'])
 
+    def test_invalid_arguments_have_corrective_schema(self):
+        response = self.tools.execute('read_material', {'material_id': 'M01'})
+        self.assertFalse(response['ok'])
+        self.assertEqual(response['expected_arguments'], {})
+        self.assertTrue(self.tools.execute('read_material', response['expected_arguments'])['ok'])
+
     def test_missing_metadata(self):
         self.request['material_id'] = 'M02'
         result = self.run_case()

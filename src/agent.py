@@ -44,6 +44,8 @@ def run_agent(request, tools, model, max_steps=10):
                 result['status'] = review['status']
             elif saved and not saved.get('ok'):
                 result['status'] = 'failed'
+            elif args.get('status') == 'failed' and any(t.get('result', {}).get('ok') is False for t in trace[:-1]):
+                result['status'] = 'failed'
             elif args.get('status') == 'needs_confirmation' and review.get('status') == 'approved' and args.get('suggested_slot') in observed.get('query_slots', {}).get('available', []):
                 result.update(status='needs_confirmation', suggested_slot=args['suggested_slot'], pending_items=['请确认替代时段；尚未保存草稿'])
             else:

@@ -1,0 +1,131 @@
+{
+  "mode": "real",
+  "model": "deepseek-flash",
+  "request": {
+    "request_id": "repeat",
+    "material_id": "M01",
+    "requested_slot": "2026-11-10T19:00"
+  },
+  "status": "saved",
+  "review_status": "approved",
+  "risk_reasons": [],
+  "pending_items": [],
+  "suggested_slot": "2026-11-10T19:00",
+  "save_status": "saved",
+  "draft": {
+    "ok": true,
+    "draft_id": "draft-25e2b6b106523880",
+    "slot": "2026-11-10T19:00",
+    "duplicate": true
+  },
+  "published": false,
+  "trace": [
+    {
+      "step": 1,
+      "action": "read_material",
+      "arguments": {},
+      "reason": "Read the requested material M01 before checking rules",
+      "result": {
+        "ok": true,
+        "material": {
+          "title": "字幕功能介绍",
+          "rights": "owned",
+          "review": "approved"
+        },
+        "error": null
+      }
+    },
+    {
+      "step": 2,
+      "action": "check_rules",
+      "arguments": {},
+      "reason": "Material M01 read successfully (owned, approved); now checking scheduling rules",
+      "result": {
+        "ok": true,
+        "status": "approved",
+        "missing": [],
+        "risks": []
+      }
+    },
+    {
+      "step": 3,
+      "action": "query_slots",
+      "arguments": {},
+      "reason": "Material M01 is owned, approved, and rule-checked with no missing data or risks; queried slots for requested time 2026-11-10T19:00",
+      "result": {
+        "ok": true,
+        "available": [
+          "2026-11-10T19:00",
+          "2026-11-10T20:00"
+        ],
+        "occupied": [
+          "2026-11-10T18:00"
+        ],
+        "requested": "2026-11-10T19:00"
+      }
+    },
+    {
+      "step": 4,
+      "action": "save_draft",
+      "arguments": {
+        "slot": "2026-11-10T19:00"
+      },
+      "reason": "Material approved with no risks; requested slot 2026-11-10T19:00 is available",
+      "result": {
+        "ok": true,
+        "draft_id": "draft-25e2b6b106523880",
+        "slot": "2026-11-10T19:00",
+        "duplicate": true
+      }
+    },
+    {
+      "step": 5,
+      "action": "finish",
+      "arguments": {
+        "status": "saved",
+        "suggested_slot": null
+      },
+      "reason": "Material M01 owned and approved, no rule risks; requested slot 2026-11-10T19:00 available and draft saved successfully (draft-25e2b6b106523880)"
+    }
+  ],
+  "stop_reason": "model_finished",
+  "fixture": {
+    "catalog": {
+      "materials": {
+        "M01": {
+          "title": "字幕功能介绍",
+          "rights": "owned",
+          "review": "approved"
+        },
+        "M02": {
+          "title": "缺少版权证明",
+          "review": "approved"
+        },
+        "M03": {
+          "title": "未获授权的素材",
+          "rights": "unknown",
+          "review": "rejected"
+        }
+      },
+      "slots": [
+        "2026-11-10T18:00",
+        "2026-11-10T19:00",
+        "2026-11-10T20:00"
+      ],
+      "occupied": [
+        "2026-11-10T18:00"
+      ],
+      "rules": {
+        "required": [
+          "title",
+          "rights",
+          "review"
+        ],
+        "rights": "owned",
+        "review": "approved"
+      }
+    },
+    "fail_save": false,
+    "draft_count": 1
+  }
+}

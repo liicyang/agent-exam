@@ -1,0 +1,98 @@
+{
+  "mode": "real",
+  "model": "deepseek-flash",
+  "request": {
+    "request_id": "missing_information",
+    "material_id": "M02",
+    "requested_slot": "2026-11-10T19:00"
+  },
+  "status": "missing_information",
+  "review_status": "missing_information",
+  "risk_reasons": [],
+  "pending_items": [
+    "rights"
+  ],
+  "suggested_slot": null,
+  "save_status": "not_saved",
+  "draft": null,
+  "published": false,
+  "trace": [
+    {
+      "step": 1,
+      "action": "read_material",
+      "arguments": {},
+      "reason": "Read the requested material M02 before checking rules",
+      "result": {
+        "ok": true,
+        "material": {
+          "title": "缺少版权证明",
+          "review": "approved"
+        },
+        "error": null
+      }
+    },
+    {
+      "step": 2,
+      "action": "check_rules",
+      "arguments": {},
+      "reason": "Material M02 review is approved; now check rules for missing data, risks, or slot constraints",
+      "result": {
+        "ok": true,
+        "status": "missing_information",
+        "missing": [
+          "rights"
+        ],
+        "risks": []
+      }
+    },
+    {
+      "step": 3,
+      "action": "finish",
+      "arguments": {
+        "status": "missing_information",
+        "suggested_slot": null
+      },
+      "reason": "Material M02 is approved, but rules report missing required data: rights."
+    }
+  ],
+  "stop_reason": "model_finished",
+  "fixture": {
+    "catalog": {
+      "materials": {
+        "M01": {
+          "title": "字幕功能介绍",
+          "rights": "owned",
+          "review": "approved"
+        },
+        "M02": {
+          "title": "缺少版权证明",
+          "review": "approved"
+        },
+        "M03": {
+          "title": "未获授权的素材",
+          "rights": "unknown",
+          "review": "rejected"
+        }
+      },
+      "slots": [
+        "2026-11-10T18:00",
+        "2026-11-10T19:00",
+        "2026-11-10T20:00"
+      ],
+      "occupied": [
+        "2026-11-10T18:00"
+      ],
+      "rules": {
+        "required": [
+          "title",
+          "rights",
+          "review"
+        ],
+        "rights": "owned",
+        "review": "approved"
+      }
+    },
+    "fail_save": false,
+    "draft_count": 0
+  }
+}
