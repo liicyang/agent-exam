@@ -130,9 +130,3 @@ flowchart TD
 - `tests/`：验收和越权/虚报/幂等边界测试。
 - `examples/mock/report.json`、`examples/mock/tests.txt`：实际离线验证结果；逐用例 JSON 含输入、输出、Trace 和故障注入条件。
 - `docs/01-requirements.md` 至 `docs/05-retrospective.md`：需求、设计、评估、AI 使用和复盘。
-
-## 提交
-
-仓库：https://github.com/liicyang/agent-exam
-
-最终提交题号 1、仓库 URL 和 `git rev-parse HEAD` 返回的完整 SHA。检查评审账号能访问。不要提交 `.env`、真实素材或考试原始文档。实际耗时、个人验证和学习记录须本人据实补全。
